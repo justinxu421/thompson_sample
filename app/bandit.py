@@ -17,7 +17,6 @@ class Bandit:
         if self.t > self.play_num:
             return
 
-        print("arm id", arm_id)
         # select arm
         arm = self.arms[arm_id]
         self.selected_arms[arm.name] += 1
@@ -27,19 +26,26 @@ class Bandit:
         arm_id = self.arms.index(arm)
         self.total += reward
 
+        # grab the previous mus and sigmas to plot
+        previous_mus, previous_sigmas = self.algorithm.mus, self.algorithm.sigmas
         # update parameter of bandit algorithm
         self.algorithm.update_param(arm_id, reward)
         reward_string = f"\nSelected arm: {arm.name}, id: {arm_id} iteration: {self.t} reward: {reward} \n\n Total Reward: {self.total}\n"
         self.t += 1
-        self.algorithm.plot_distributions(self.on_click, reward_string)
+        self.algorithm.plot_distributions(
+            self.on_click,
+            reward_string,
+            previous_mus=previous_mus,
+            previous_sigmas=previous_sigmas,
+        )
 
     def experiment(self):
         priors = [
-            Prior(10.0, 2.0),
-            Prior(11.0, 1.0),
-            Prior(12.0, 1.0),
-            Prior(5.0, 0.0),
-            Prior(9.0, 2.0),
+            Prior(10.0, 1.0),
+            Prior(10.0, 1.0),
+            Prior(10.0, 1.0),
+            Prior(10.0, 1.0),
+            Prior(10.0, 1.0),
         ]
         self.algorithm.initialize(priors)
         self.algorithm.plot_distributions(self.on_click)
