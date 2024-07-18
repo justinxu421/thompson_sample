@@ -65,7 +65,7 @@ class ThompsonSamplingGaussianPrior(object):
             std = self.sigmas(i)
             print(f"Arm id: {i}, name: {arm.name} mu: {mu} std: {std}")
         print()
-    
+
     def make_button(self, axs, i, on_click):
         button_plot = axs[i, 1]
         button = Button(
@@ -76,7 +76,9 @@ class ThompsonSamplingGaussianPrior(object):
         button.on_clicked(lambda _: on_click(i))
         self.buttons.append(button)
 
-    def plot_distributions(self, on_click, reward_string: Optional[str] = None):
+    def plot_distributions(
+        self, on_click, reward_string: Optional[str] = None
+    ):
         plt.style.use("seaborn-v0_8")
 
         x = np.arange(-20, 50, 0.01)
@@ -98,5 +100,3 @@ class ThompsonSamplingGaussianPrior(object):
             self.make_button(axs, i, on_click)
 
         plt.show()
-        return self.buttons
-

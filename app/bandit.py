@@ -6,6 +6,7 @@ from app.gaussian_prior import Prior, ThompsonSamplingGaussianPrior
 class Bandit:
     def __init__(self, arms, play_num, manual=False):
         self.t = 0
+        self.total = 0
         self.selected_arms = defaultdict(int)
         self.arms = arms
         self.play_num = play_num
@@ -24,11 +25,11 @@ class Bandit:
         # play arm and observe reward
         reward = arm.play()
         arm_id = self.arms.index(arm)
+        self.total += reward
 
         # update parameter of bandit algorithm
         self.algorithm.update_param(arm_id, reward)
-        reward_string = f"\nSelected arm: {arm.name}, id: {arm_id} iteration: {self.t} reward: {reward} \n"
-        print(reward_string)
+        reward_string = f"\nSelected arm: {arm.name}, id: {arm_id} iteration: {self.t} reward: {reward} \n\n Total Reward: {self.total}\n"
         self.t += 1
         self.algorithm.plot_distributions(self.on_click, reward_string)
 
