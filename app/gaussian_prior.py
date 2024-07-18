@@ -94,6 +94,7 @@ class ThompsonSamplingGaussianPrior(object):
                 color=colors[i % len(colors)],
                 linestyle="dashed" if dashed else "solid",
             )
+            subplot.set_ylim(0, 0.4)
             subplot.set_title(self.get_title(i))
 
     def plot_distributions(
@@ -105,7 +106,7 @@ class ThompsonSamplingGaussianPrior(object):
     ):
         plt.style.use("seaborn-v0_8")
 
-        x = np.arange(-20, 50, 0.01)
+        x = np.arange(-10, 20, 0.02)
         fig, axs = plt.subplots(self.N, 2)
         fig.set_size_inches((8, 8))
         if reward_string:

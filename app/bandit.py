@@ -1,3 +1,4 @@
+import copy
 from collections import defaultdict
 
 from app.gaussian_prior import Prior, ThompsonSamplingGaussianPrior
@@ -27,7 +28,9 @@ class Bandit:
         self.total += reward
 
         # grab the previous mus and sigmas to plot
-        previous_mus, previous_sigmas = self.algorithm.mus, self.algorithm.sigmas
+        previous_mus, previous_sigmas = copy.deepcopy(
+            self.algorithm.mus
+        ), copy.deepcopy(self.algorithm.sigmas)
         # update parameter of bandit algorithm
         self.algorithm.update_param(arm_id, reward)
         reward_string = f"\nSelected arm: {arm.name}, id: {arm_id} iteration: {self.t} reward: {reward} \n\n Total Reward: {self.total}\n"
