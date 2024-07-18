@@ -25,7 +25,7 @@ class ThompsonSamplingGaussianPrior(object):
         self.mus = np.zeros(self.N)
         self.buttons = []
 
-    def initialize(self )
+    def initialize(self):
         self.ks = np.zeros(self.N) + 1.0
         self.mus = np.zeros(self.N) + 10.0
 
