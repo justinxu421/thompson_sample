@@ -25,13 +25,9 @@ class ThompsonSamplingGaussianPrior(object):
         self.mus = np.zeros(self.N)
         self.buttons = []
 
-    def initialize(self, priors: list[Prior]):
-        if priors:
-            self.ks = np.array([prior.k for prior in priors])
-            self.mus = np.array([prior.mu for prior in priors])
-        else:
-            self.ks = np.zeros(self.N)
-            self.mus = np.zeros(self.N) + 5.0
+    def initialize(self )
+        self.ks = np.zeros(self.N) + 1.0
+        self.mus = np.zeros(self.N) + 10.0
 
     @property
     def sigmas(self):

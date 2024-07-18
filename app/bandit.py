@@ -43,12 +43,5 @@ class Bandit:
         )
 
     def experiment(self):
-        priors = [
-            Prior(10.0, 1.0),
-            Prior(10.0, 1.0),
-            Prior(10.0, 1.0),
-            Prior(10.0, 1.0),
-            Prior(10.0, 1.0),
-        ]
-        self.algorithm.initialize(priors)
+        self.algorithm.initialize()
         self.algorithm.plot_distributions(self.on_click)

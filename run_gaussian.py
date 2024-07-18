@@ -21,6 +21,7 @@ def main():
         NormalArm("Mentor Teammate", 15, 3.0),
         NormalArm("Squash Bug", 8.0, 3.0),
         NormalArm("Implement Bug", -5, 10),
+        NormalArm("Chat with coworkers", 0, 3.0),
         NormalArm("Prepare Tech Talk", 20, 2),
     ]
 
