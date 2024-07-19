@@ -59,7 +59,7 @@ class ThompsonSamplingGaussianPrior(object):
         for i in range(self.N):
             arm = self.arms[i]
             mu = self.mus[i]
-            std = self.sigmas(i)
+            std = self.sigmas[i]
             print(f"Arm id: {i}, name: {arm.name} mu: {mu} std: {std}")
         print()
 
@@ -106,7 +106,7 @@ class ThompsonSamplingGaussianPrior(object):
         fig, axs = plt.subplots(self.N, 2)
         fig.set_size_inches((8, 8))
         if reward_string:
-            fig.suptitle(reward_string)
+            fig.suptitle(reward_string, fontweight='bold')
         else:
             fig.suptitle("")
         plt.tight_layout()

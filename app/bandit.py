@@ -34,6 +34,8 @@ class Bandit:
         # update parameter of bandit algorithm
         self.algorithm.update_param(arm_id, reward)
         reward_string = f"\nSelected arm: {arm.name}, id: {arm_id} iteration: {self.t} reward: {reward} \n\n Total Reward: {self.total}\n"
+        if self.total > 200:
+            reward_string += "\nYou got promoted!\n"
         self.t += 1
         self.algorithm.plot_distributions(
             self.on_click,
