@@ -1,6 +1,8 @@
 # thompson_sample setup
 
-- `pyenv virtualenv 3.10 thompson_sample`
+Requires Python 3.11 or newer (Pillow 13).
+
+- `pyenv virtualenv 3.11 thompson_sample`
 - `pip install -r requirements.txt`
 - `python run_gaussian.py`
 
