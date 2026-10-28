@@ -11,7 +11,9 @@ def main():
 
     # setting of experiment
     parser.add_argument("--exp_num", type=int, default=1, help="Number of experiments")
-    parser.add_argument("--manual", type=bool, default=False, help="Manually select experiments")
+    parser.add_argument(
+        "--manual", type=bool, default=False, help="Manually select experiments"
+    )
 
     args = parser.parse_args()
 

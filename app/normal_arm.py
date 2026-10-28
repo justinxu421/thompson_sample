@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class NormalArm:
     def __init__(self, name, mean, sigma):
         self.name = name

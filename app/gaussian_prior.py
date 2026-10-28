@@ -106,7 +106,7 @@ class ThompsonSamplingGaussianPrior(object):
         fig, axs = plt.subplots(self.N, 2)
         fig.set_size_inches((8, 8))
         if reward_string:
-            fig.suptitle(reward_string, fontweight='bold')
+            fig.suptitle(reward_string, fontweight="bold")
         else:
             fig.suptitle("")
         plt.tight_layout()
